@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ai.swu</groupId>
-    <artifactId>swu2048</artifactId>
+    <artifactId>SWU_Games</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>swu2048</name>
     <description>swu2048</description>
