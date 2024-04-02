@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Main-Class: com.ai.swu.swu2048.Swu2048Application
+Class-Path: HikariCP-5.0.1.jar log4j-to-slf4j-2.21.1.jar jul-to-slf4j-2.
+ 0.12.jar tomcat-embed-websocket-10.1.19.jar mybatis-spring-boot-starter
+ -3.0.3.jar spring-boot-starter-logging-3.2.3.jar jackson-datatype-jsr31
+ 0-2.15.4.jar commons-codec-1.16.1.jar classmate-1.6.0.jar lombok-1.18.3
+ 0.jar spring-web-6.1.4.jar mysql-connector-j-8.3.0.jar mybatis-3.5.14.j
+ ar spring-webmvc-6.1.4.jar snakeyaml-2.2.jar jackson-datatype-jdk8-2.15
+ .4.jar tomcat-embed-core-10.1.19.jar spring-expression-6.1.4.jar logbac
+ k-classic-1.4.14.jar jakarta.annotation-api-2.1.1.jar hibernate-validat
+ or-8.0.1.Final.jar httpclient-4.5.13.jar spring-beans-6.1.4.jar spring-
+ core-6.1.4.jar jackson-annotations-2.15.4.jar spring-jcl-6.1.4.jar spri
+ ng-boot-starter-tomcat-3.2.3.jar jakarta.validation-api-3.0.2.jar sprin
+ g-boot-starter-json-3.2.3.jar httpcore-4.4.16.jar spring-boot-starter-j
+ dbc-3.2.3.jar tomcat-embed-el-10.1.19.jar mybatis-spring-boot-autoconfi
+ gure-3.0.3.jar logback-core-1.4.14.jar spring-context-6.1.4.jar spring-
+ tx-6.1.4.jar spring-boot-3.2.3.jar spring-aop-6.1.4.jar spring-jdbc-6.1
+ .4.jar spring-boot-starter-web-3.2.3.jar spring-boot-starter-validation
+ -3.2.3.jar jackson-core-2.15.4.jar spring-boot-autoconfigure-3.2.3.jar 
+ jackson-databind-2.15.4.jar slf4j-api-2.0.12.jar jackson-module-paramet
+ er-names-2.15.4.jar jboss-logging-3.5.3.Final.jar mybatis-spring-3.0.3.
+ jar commons-logging-1.2.jar log4j-api-2.21.1.jar spring-boot-starter-3.
+ 2.3.jar micrometer-observation-1.12.3.jar micrometer-commons-1.12.3.jar
+

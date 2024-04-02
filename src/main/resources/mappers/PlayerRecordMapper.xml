@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ai.swu.swu2048.mapper.PlayerRecordMapper">
+    <select id="getUserRank" resultType="int">
+        SELECT COUNT(*) + 1 AS NextRank
+        FROM totalrecord
+        WHERE GameType = #{gameType}
+        AND (College = #{college} OR #{college} IS NULL)
+        AND (ClassName = #{className} OR #{className} IS NULL)
+        <choose>
+            <when test="rankType == 'TotalMark'">
+                AND TotalMark > (SELECT TotalMark FROM totalrecord WHERE UserID = #{userID})
+            </when>
+            <when test="rankType == 'TopMark'">
+                AND TopMark > (SELECT TopMark FROM totalrecord WHERE UserID = #{userID})
+            </when>
+            <otherwise>
+                AND TopMark > (SELECT TopMark FROM totalrecord WHERE UserID = #{userID})
+            </otherwise>
+        </choose>
+    </select>
+    <!-- 定义resultMap -->
+    <resultMap id="totalRecordMap" type="com.ai.swu.swu2048.entity.TotalRecord">
+        <result property="id" column="ID"/>
+        <result property="userID" column="UserID"/>
+        <result property="gameType" column="GameType"/>
+        <result property="name" column="Name"/>
+        <result property="sidNumber" column="SIDNumber"/>
+        <result property="college" column="College"/>
+        <result property="className" column="ClassName"/>
+        <result property="totalMark" column="TotalMark"/>
+        <result property="topMark" column="TopMark"/>
+        <!-- 添加其他属性的映射 -->
+    </resultMap>
+    <!-- 使用resultMap的查询 -->
+    <select id="getTopNRanks" resultMap="totalRecordMap">
+        SELECT *
+        FROM totalrecord
+        WHERE GameType = #{gameType}
+        AND (College = #{college} OR #{college} IS NULL)
+        AND (ClassName = #{className} OR #{className} IS NULL)
+        AND #{rankType} IS NOT NULL
+        <choose>
+            <when test="rankType == 'TotalMark'">
+                ORDER BY TotalMark DESC
+            </when>
+            <when test="rankType == 'TopMark'">
+                ORDER BY TopMark DESC
+            </when>
+            <!-- 如果还有其他可能的rankType值，可以继续添加<when>标签 -->
+            <otherwise>
+                <!-- 如果rankType不是' TotalMark '或'TopMark'，可以添加默认排序或抛出异常 -->
+                ORDER BY TopMark DESC -- 假设TopMark是默认的排序字段
+            </otherwise>
+        </choose>
+        LIMIT #{top_n}
+    </select>
+</mapper>
